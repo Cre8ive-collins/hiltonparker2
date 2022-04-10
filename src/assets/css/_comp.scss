@@ -1,0 +1,76 @@
+body {
+  font-family: 'Comfortaa', cursive;
+  background-color: #f6f6f6;
+  background: url('../images/bgx.svg') fixed center / cover;
+  > div {
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* Hide scrollbar */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+a {
+  @apply  cursor-pointer transition-all duration-500;
+  &:hover {
+    @apply text-blue-800;
+  }
+  &.router-link-active {
+    @apply text-gray-600;
+  }
+}
+
+.bgx {
+  background-color: #f6f6f6 !important;
+  background: url('../img/bgx.svg') fixed center / cover;
+}
+
+.msg {
+  @apply pt-4 px-4 fixed top-0 w-full;
+  .success {
+    @apply bg-green-200 text-green-600 border-green-300;
+  }
+  .error {
+    @apply bg-red-200 text-red-600 border-red-300;
+  }
+  > div {
+    @apply py-5 px-4 text-center border ;
+  }
+}
+
+label {
+  @apply opacity-50
+}
+
+input:focus-within ~ label {
+  @apply transform scale-75 -translate-y-6 text-brand-major;
+ }
+ input:not(:placeholder-shown) ~ label {
+  @apply transform scale-75 -translate-y-6;
+}
+
+input:focus-within ~ label {
+  @apply text-brand-major;
+}
+
+input {
+  @apply text-gray-700;
+ 
+  }
+
+input[type="checkbox"]{
+  @apply accent-brand-omajor
+}
+
+
+  h1{
+    @apply font-bold;
+    // color: #666666;
+  }
+
