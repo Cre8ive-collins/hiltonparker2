@@ -29,7 +29,11 @@ axios.interceptors.response.use((res) => {
   let ms = err.response?.data?.message ? err.response.data.message : err.message
   if(ms.includes("User not found")){
     router.push('/')
-  }else{
+  }else if (ms.includes("Session expired")) {
+    // window.localStorage.clear()
+    router.push('/')
+  }
+  else{
     flash.error(ms, {
      position : 'top'
    })
@@ -46,7 +50,9 @@ VuexORM.use(VuexORMAxios, {
   headers: { 
     "Content-Type": "application/json", 
     "API_KEY": API_KEY,
-    "user_token" : localStorage.getItem('user_token')
+    "user_token" : localStorage.getItem('user_token'),
+    "admin_token" : localStorage.getItem('admin_token'),
+    "officer_token" : localStorage.getItem('officer_token'),
    },
   // headers: { "Content-Type": "application/json" },
   baseURL: API,

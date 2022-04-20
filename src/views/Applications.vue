@@ -378,6 +378,7 @@ export default {
 
         },
         async sfileUpload(e){
+            // NAMING CONVENTION IS ERRORNOUS 
             let fileName = User.info().supporting_docs ? `${User.info().supporting_docs}|${User.info().id}~${e.docName}.${this.uploadedFileExt(e.file.type)}` :  `${User.info().id}~${e.docName}.${this.uploadedFileExt(e.file.type)}`
             await uploadFileToFirebase(e, fileName, 'supporting_docs')
         },

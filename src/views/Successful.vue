@@ -1,12 +1,12 @@
 <template>
     <div class="flex">
         <div class="h-screen bg-orange-300 md:w-[25em] w-1/2 md:p-10 pt-10 pl-5">
-            <h3 class="md:text-center text-left md:text-2xl text-lg">You've Successfully Submitted Your Application</h3>
+            <h3 class="md:text-center text-left md:text-2xl text-lg font-extrabold">You've Successfully Submitted Your Application</h3>
         </div>
-        <div class=" fixed border bg-orange-100 top-40 left-16 md:top-40 md:left-72 md:w-[30em] w-[18em]">
+        <div class=" fixed border bg-orange-100 top-40 left-16 md:top-40 md:left-80 md:w-[40em] w-[18em]">
             <div class="flex">
-                <div class="w-1/4"></div>
-                <div class="w-3/4">
+                <div class="md:w-1/5 w-1/4"></div>
+                <div class="md:w-3/5 w-3/4 md:text-center text-left">
                     <p class="md:mt-16 mt-5 md:mr-10 mr-5 text-base md:text-xl">Congratulations, your application has been successfully submitted! No further action is needed for you to complete
                         your submission during the application period. </p>
 
@@ -18,6 +18,7 @@
                         <a href="mailto:support@hiltonparkerng.com" class="text-brand-blue md:text-base text-xs">Support@hiltonparkerng.com</a>
                     </p>
                 </div>
+                <div class="md:w-1/5 w-0"></div>
             </div>
         </div>
         <div class="fixed bottom-5 p-3 w-full text-brand-blue">

@@ -4,13 +4,13 @@
       <div class="md:w-1/2 w-full z-20 text-black px-8 "  v-if="login">
         <img
           class="absolute bottom-0 left-0 object-contain "
-          alt="PayedIn"
-          src="../assets/images/icons/loginggliph.svg"
+          alt=""
+          src="../../assets/images/icons/loginggliph.svg"
         />
           <h2
           class="text-gray-700 uppercase font-bold tracking-wider mb-2 text-xl w-full text-center"
         >
-          LOGIN
+         ADMIN LOGIN
         </h2>
           <hr class="md:w-2/3 w-full mx-auto border-brand-major  mt-5"> 
            <Form @submit="signIn">
@@ -50,8 +50,8 @@
       <div class="md:w-1/2 w-full z-20 text-black px-8 "  v-if="!login">
         <img
           class="absolute bottom-0 left-0 object-contain "
-          alt="PayedIn"
-          src="../assets/images/icons/loginggliph.svg"
+          alt=""
+          src="../../assets/images/icons/loginggliph.svg"
         />
          <h1 class="text-center font-bold tracking-wider text-xl text-brand-gray">
             Enter email to reset password
@@ -88,7 +88,7 @@
 <script>
 import { Form, Field, ErrorMessage } from 'vee-validate';
 import { useRouter } from 'vue-router'
-import { User } from '../store/models'
+import { Admin } from '../../store/models';
 
 
 
@@ -112,21 +112,23 @@ export default {
   methods: {
     resetPassword(){
       this.login = !this.login
+      console.log('reset adin pass')
     },
 
     async signIn(values){
-      let res = await User.api().login(values)
-      console.log(res)
-      if(res && res.response.data){
-        let token = res.response.data.data
-        window.localStorage.setItem("user_token" , token)
-        this.router.push('/user/dashboard')
+      let res = await Admin.api().login(values)
+      if(res && res.response && res.response.data){
+        let token = res.response.data.data.token
+        window.localStorage.setItem("admin_token" , token)
+        this.router.push('/admin')
       }
     },
 
    
-     sendResetMail (values){ 
-      User.api().resetPassword(values)
+     async sendResetMail (values){ 
+        await Admin.api().resetPassword(values)
+        this.login = !this.login
+        console.log('reset adin pass')
     }
 
   },

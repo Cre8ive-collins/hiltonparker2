@@ -28,6 +28,7 @@ export default class User extends Model {
       international_passport : this.attr(""),
       passport_photo : this.attr(""),
       supporting_docs : this.attr(""),
+      createdAt : this.attr("")
     };
   }
 
@@ -39,6 +40,15 @@ export default class User extends Model {
       { id: 0, first_name: "", last_name: ""};
   }
 
+  static mode() {
+    if (this.exists()) {
+      let u = this.all();
+      // console.log("MODE", u[0].id);
+      return u[0].id;
+    }
+    return "";
+  }
+
   static changeStatus(id, status){
     User.update({
       data : { id , applications_status : status}
@@ -47,6 +57,10 @@ export default class User extends Model {
 
   static apiConfig = {
     actions: {
+      async find(id){
+        console.log(id)
+        await this.get(`/user/${id}`, userDT)
+      },
       async resetPassword(v){
         this.post('/auth/reset', v, { save : false  })
       },
@@ -85,6 +99,11 @@ export default class User extends Model {
         }
         let res = await this.put('/apply', body, userDT)
         return res
+      },
+
+      async send_reminder(id, stat){
+        let data = { id : id , status : stat }
+        this.post('/officer/send_reminder', data, { save : false })
       },
 
       async fileUpload(filename, ent){
