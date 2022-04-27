@@ -30,9 +30,9 @@ export const color_letter = (letter) => {
 
 export const application_stats = (stat) => {
     if(!stat) return 'Pending'
-    if(stat == 1) return "Pending" 
+    if(stat == 1) return "Document" 
     if(stat == 2) return "Document" 
-    if(stat == 3) return "Payment" 
+    if(stat == 3) return "Applied" 
     if(stat > 3) return "Successfull" 
 
 }
@@ -57,19 +57,24 @@ export const interPass = async (obj) => {
   };
 
 export const supp_docs = async (obj) => {
-    let fileNames = obj.split('|')
-    let names = fileNames.map(file => {
-        return file.split("~")[1].split('.')[0]
-    }) 
-    console.log(names, fileNames)
-    let files = []
-    for(let i of fileNames){
-        console.log(i)
-        await getDownloadURL(ref(firebaseStorage, `hps/${i}`)).then(resu => {
-            files.push(resu)
+    if(obj){
+        let fileNames = obj.split('|')
+        let names = fileNames.map(file => {
+            return file.split("~")[1].split('.')[0]
+        }) 
+        console.log(names, fileNames)
+        let files = []
+        for(let i of fileNames){
+            console.log(i)
+                files.push(await getDownloadURL(ref(firebaseStorage, `hps/${i}`)))
+        }
+        let data = {}
+        names.forEach((elem, ind) => {
+            data[elem] = files[ind]
         })
+        console.log(data)
+        return data
     }
-    console.log(files)
     
 }
 
@@ -87,12 +92,24 @@ export const docCount = (values) => {
     return values.split('|').length
 }
 
-export const uploadFileToFirebase = (file, filename, ent) => {
+export const uploadFileToFirebase = (file, filename, ent, user) => {
     NProgress.start()
     const fileRef = ref(firebaseStorage, `hps/${filename}`)
     uploadBytes(fileRef, file).then((snapshot) => {
-        // console.log(snapshot, 'file uploaded')
-        User.api().fileUpload(filename, ent)
+        let name =user && user.supporting_docs ? `${user.supporting_docs}|${user.id}~${docName}.${uploadedFileExt(file.type)}` : filename
+        console.log(name, "filename fix")
+        User.api().fileUpload(name, ent)
+        NProgress.done()
+        return snapshot
+    }).catch(err => console.log(err))
+}
+export const uploadFileToFirebase5 = (file,docName, filename, ent, user) => {
+    NProgress.start()
+    const fileRef = ref(firebaseStorage, `hps/${filename}`)
+    uploadBytes(fileRef, file).then((snapshot) => {
+        let name =user && user.supporting_docs ? `${user.supporting_docs}|${user.id}~${docName}.${uploadedFileExt(file.type)}` : filename
+        console.log(name, "filename fix")
+        User.api().fileUpload(name, ent)
         NProgress.done()
         return snapshot
     }).catch(err => console.log(err))

@@ -112,7 +112,7 @@ export default {
   bottom: 0;
 }
 .trapez-b {
- width: 0;
+  width: 0;
   height: screen;
   border-left: 30rem solid transparent;
   border-top: 30rem solid rgba(255, 255, 255, 0.333);

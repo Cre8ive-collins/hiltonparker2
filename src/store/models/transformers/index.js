@@ -8,6 +8,7 @@ export const userDT = {
         User.create({
             data : res.data.data.user
         })
+        return res.data.data
       }
     }
   }
@@ -19,6 +20,7 @@ export const clientDT = {
         Client.create({
             data : res.data.data
         })
+        return res.data.data
       }
     }
   }
@@ -30,6 +32,7 @@ export const adminDT = {
         Admin.create({
             data : res.data.data
         })
+        return res.data.data
       }
     }
   }
@@ -40,6 +43,7 @@ export const officerDT = {
         AdmissionOfficer.create({
             data : res.data.admission_officer
         })
+        return res.data.data
       }
     }
   }

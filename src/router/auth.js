@@ -4,7 +4,7 @@ import { router } from ".";
 
 export const adminAuth = async (to, from , next) => {
     let admin_token = window.localStorage.getItem('admin_token')
-    if(!admin_token) { router.push('/admin/login') }
+    if(!admin_token) { router.push('/admin/login')}
     else {
         await Admin.api().getAdmin()
         next()

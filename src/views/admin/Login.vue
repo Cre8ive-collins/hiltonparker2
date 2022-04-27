@@ -39,13 +39,6 @@
             <p class="text-brand-gray text-right text-xs cursor-pointer w-1/2 hover:text-brand-blue" @click="resetPassword" v-text=" login ? 'Forgot Passowrd' : 'Login'"></p>
           </div>
           </Form>
-
-         
-
-
-
-      <p class="text-brand-gray text-center mt-14 text-xs ">Dont have an application <router-link to="/apply" class="cursor-alias"> <u>Get Started</u> </router-link></p>
-
       </div>
       <div class="md:w-1/2 w-full z-20 text-black px-8 "  v-if="!login">
         <img

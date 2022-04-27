@@ -34,7 +34,7 @@ export const router = createRouter({
         {path : '/sign-in', name :  'sign-in', component : SignIn},
         {path : '/apply', name :  'apply', component : Apply},
         {path : '/staff', name :  'staff', component : Staff},
-        {path : '/admin', name :  'staff', beforeEnter : adminAuth,  component : Admin},
+        {path : '/admin', name :  'admin', beforeEnter : adminAuth,  component : Admin},
         {path : '/verify', name :  'vefify', component : Verify},
         {path : '/setup', name :  'setup', component : Setup},
         {path : '/successful', name :  'successfull', component : Successful},

@@ -29,7 +29,7 @@
                     </h3>
                     <h3 class="text-sm text-center font-normal" v-if="User.info().date_of_birth">Date of Birth: {{ date_only(User.info().date_of_birth) }}</h3>
                     <h3 class="text text-center text-brand-major my-10">Status : {{ application_stats( User.info().applications_status ) }}
-                         <span class="p-2 cursor-pointer bg-brand-major text-white rounded hover:bg-white hover:border-brand-major border hover:text-brand-major" @click="reminder(User.info().applications_status  )">Send reminder</span> </h3>
+                    <span class="p-2 cursor-pointer bg-brand-major text-white rounded hover:bg-white hover:border-brand-major border hover:text-brand-major" @click="reminder(User.info().applications_status  )">Send reminder</span> </h3>
                 </div>
                 <div class="text-sm"></div>
                 </div>
@@ -58,6 +58,9 @@
                     <div class="flex gap-10">
                         <h2 class=" mt-5 capitalize" v-for="m in course_spliter(User.info().courses)" :key="m">{{ m }}</h2>
                     </div>
+                    <div class="flex gap-10">
+                        <h2 class="text-brand-major mt-5 capitalize" v-for="(m, i) in course_spliter(User.info().courses)" :key="m">Course {{ i+1 }}</h2>
+                    </div>
                   </div>
                   <div v-else>
                       <h2 class="w-full text-center text-gray-500">Application not updated </h2>
@@ -77,34 +80,15 @@
                                 <a :href="ip" target="blank"><h2  class="text-white bg-brand-major p-2 text-center rounded mt-5 cursor-pointer">Download</h2></a>
                             </div>
                         </div>
-                        <hr class="my-5 border border-brand-omajor bg-brand-omajor ">
+                        <hr class="my-5 border border-brand-omajor bg-brand-omajor "> {{dcs}}
                         <h2 class="text-brand-major text-center mt-auto">Supporting Documents</h2>
                         <hr class="my-5 border border-brand-omajor bg-brand-omajor ">
                         <div v-if="User.info().supporting_docs" class="flex flex-wrap gap-5">
-                            <div class="w-1/4  mb-28" >
-                                <h2 class="text-brand-major text-center mt-t">Passport photograph</h2>
-                                <img :src="src" :alt="src" class="rounded-full w-40 h-40 mx-auto mt-5"/>
-                                <a :href="src" target="blank"><h2  class="text-white bg-brand-major p-2 text-center rounded mt-5 cursor-pointer">Download</h2></a>
-                            </div>
-                            <div class="w-1/4 mb-28" >
-                                <h2 class="text-brand-major text-center mt-t">Passport photograph</h2>
-                                <img :src="src" :alt="src" class="rounded-full w-40 h-40 mx-auto mt-5"/>
-                                <a :href="src" target="blank"><h2  class="text-white bg-brand-major p-2 text-center rounded mt-5 cursor-pointer">Download</h2></a>
-                            </div>
-                            <div class="w-1/4 mb-28" >
-                                <h2 class="text-brand-major text-center mt-t">Passport photograph</h2>
-                                <img :src="src" :alt="src" class="rounded-full w-40 h-40 mx-auto mt-5"/>
-                                <a :href="src" target="blank"><h2  class="text-white bg-brand-major p-2 text-center rounded mt-5 cursor-pointer">Download</h2></a>
-                            </div>
-                            <div class="w-1/4 mb-28" >
-                                <h2 class="text-brand-major text-center mt-t">Passport photograph</h2>
-                                <img :src="src" :alt="src" class="rounded-full w-40 h-40 mx-auto mt-5"/>
-                                <a :href="src" target="blank"><h2  class="text-white bg-brand-major p-2 text-center rounded mt-5 cursor-pointer">Download</h2></a>
-                            </div>
-                            <div class="w-1/4 mb-28" >
-                                <h2 class="text-brand-major text-center mt-t">Passport photograph</h2>
-                                <img :src="src" :alt="src" class="rounded-full w-40 h-40 mx-auto mt-5"/>
-                                <a :href="src" target="blank"><h2  class="text-white bg-brand-major p-2 text-center rounded mt-5 cursor-pointer">Download</h2></a>
+                            <div class="w-1/2  mb-28" v-for="(item, index) in dcs" :key="index">
+                                <h2 class="text-brand-major text-center mt-t">{{ index }} {{ }}</h2>
+                                <h2 class="text-brand-major text-center mt-t">{{ src }} {{ }}</h2>
+                                <img :src="item" :alt="item" class="rounded-full w-40 h-40 mx-auto mt-5"/>
+                                <a :href="item" target="blank"><h2  class="text-white bg-brand-major p-2 text-center rounded mt-5 cursor-pointer">Download</h2></a>
                             </div>
                         </div>
                         <div v-else>
@@ -175,6 +159,7 @@ export default {
     },
 
     setup(){
+        let dcs = ref("")
         let src = ref("https://ui-avatars.com/api/?name=" + 'hps' + "&background=" + '1046a2' + "&color=FFFFFF&size=256&bold=false&format=svg&font-size=0.35")
         let ip = ref("https://ui-avatars.com/api/?name=" + 'hps' + "&background=" + '1046a2' + "&color=FFFFFF&size=256&bold=false&format=svg&font-size=0.35")
         watch(
@@ -183,7 +168,9 @@ export default {
                  if(User.info().id){
                      image(User.info()).then(res => src.value = res)
                      interPass(User.info()).then(res => ip.value = res)
-                     supp_docs(User.info().supporting_docs)
+                     supp_docs(User.info().supporting_docs).then(res => {
+                         dcs.value = res
+                     })
                  }
         })
         let tab = ref("program")
@@ -195,7 +182,7 @@ export default {
         }
         User.api().find(id)
         return {
-            ip, src, router, route, id, AdmissionOfficer, User, date_only, image, application_stats, reminder, tab, course_spliter
+            dcs, supp_docs, ip, src, router, route, id, AdmissionOfficer, User, date_only, image, application_stats, reminder, tab, course_spliter
         }
     }
     

@@ -304,7 +304,7 @@
 import { useRoute, useRouter } from 'vue-router'
 import { Form, Field, ErrorMessage } from 'vee-validate';
 import { User } from '../store/models'
-import { date_only, course_spliter, uploadedFileExt, uploadFileToFirebase, docCount } from '../utils'
+import { date_only, course_spliter, uploadedFileExt, uploadFileToFirebase, docCount, uploadFileToFirebase5 } from '../utils'
 import FileSelect from "./components/FileSelect.vue"
 
 export default {
@@ -379,8 +379,9 @@ export default {
         },
         async sfileUpload(e){
             // NAMING CONVENTION IS ERRORNOUS 
-            let fileName = User.info().supporting_docs ? `${User.info().supporting_docs}|${User.info().id}~${e.docName}.${this.uploadedFileExt(e.file.type)}` :  `${User.info().id}~${e.docName}.${this.uploadedFileExt(e.file.type)}`
-            await uploadFileToFirebase(e, fileName, 'supporting_docs')
+            let fileName = `${User.info().id}~${e.docName}.${this.uploadedFileExt(e.file.type)}`
+            e.docName ? await uploadFileToFirebase5(e.file, e.docName, fileName, 'supporting_docs', User.info()) :
+            uploadFileToFirebase(e.file, fileName, 'supporting_docs', User.info())
         },
         prev(status){
             this.editMode = false

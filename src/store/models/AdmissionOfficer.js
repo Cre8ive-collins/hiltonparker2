@@ -51,10 +51,15 @@ export default class AdmissionOfficer extends Model {
             }
           },
 
-          async allclients(){
-            let res = await this.get('/officer/clients', clientDT)
+          async allclients(par, ser){
+            let res = par ?  ser ? await this.get('/officer/clients?search=' + par , clientDT) : await this.get('/officer/clients?param=' + par , clientDT) : await this.get('/officer/clients', clientDT)
             console.log(res)
             return res.response.data
+          },
+
+          async dashboard(){
+            let res = await this.get('/officer/dashboard', { save : false})
+            return res.response.data.data
           }
         }
       }
