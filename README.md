@@ -1,7 +1,90 @@
-# Vue 3 + Vite
+# PayedIn UI\_\_
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+This is the frontend app of the PayedIn Project. <br /><br />
+By frontend, this refers to the Web App - User and Admin end, and the Mobile App - Cordova.
+The codes to the frontend is located in the following folders:
+<br><br>
+User end - src/user <br>
+Admin end - src/admin <br>
+App - cordova & src/app
+|Frontend|Location|
+| ---------------- | ------------------------ |
+| User end | [src/user](https://github.com/PayedIn/ui/tree/master/src/user) |
+| Admin end | [src/admin](https://github.com/PayedIn/ui/tree/master/src/admin) |
+| App | [cordova](https://github.com/PayedIn/ui/tree/master/cordova) & [src/app](https://github.com/PayedIn/ui/tree/master/src/app) |
 
-## Recommended IDE Setup
+<br />
 
-- [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
+---
+
+## Project setup
+
+```
+npm install
+```
+
+<br />
+
+### Compiles and hot-reloads for development
+
+User
+
+```
+npm run serve:user
+```
+
+Admin
+
+```
+npm run serve:admin
+```
+
+App
+
+```
+npm run serve:app
+```
+
+<br />
+
+### Compiles and minifies for production
+
+User
+
+```
+npm run build:user
+```
+
+Admin
+
+```
+npm run build:admin
+```
+
+App
+
+```
+npm run build:app
+```
+
+<br />
+
+### App preview
+
+App Android
+
+```
+cordova emulate android
+```
+
+App Android
+
+```
+cordova emulate ios
+```
+
+<br />
+
+### Customize configuration
+
+See [Configuration Reference](https://cli.vuejs.org/config/).
