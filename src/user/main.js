@@ -7,6 +7,8 @@ import Toaster from "@meforma/vue-toaster";
 import 'nprogress/nprogress.css'
 import { email, min, digits } from '@vee-validate/rules';
 import { defineRule } from 'vee-validate';
+import VueAgile from 'vue-agile'
+
 
 
 // import { useRouter } from "vue-router";
@@ -44,6 +46,7 @@ register(app);
 
 app
   .use(router)
+  .use(VueAgile)
   .use(store)
   .use(Toaster)
   .mount("#app");

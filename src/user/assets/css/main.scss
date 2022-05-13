@@ -18,6 +18,10 @@ html {
 
   }
 
+  *:focus {
+    outline: none;
+}
+
   .crawcraw{
     background-color: red;
   background: url('../images/bgx.svg') fixed center / cover;
@@ -27,5 +31,11 @@ html {
     /* background-color: yellow; */
     border: none !important;
   }
+
+  .h-50 {
+    height: 50vh;
+  }
+
+  
 
   

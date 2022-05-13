@@ -28,8 +28,12 @@ module.exports = {
         bluer: '#1259c5',
         green: '#4CAF50',
         adminblue : '#0066FF',
-        major : '#F69615' ,
-        omajor : 'rgba(246, 150, 21, 0.7)'
+        major : '#FF9F1C' , 
+        omajor : 'rgba(246, 150, 21, 0.7)',
+        secondary : '#CBF3F0',
+        secondaryx : '#2EC4B6',
+        white : '#FFFFFF',
+        primary : '#FFBF69',
 
         
       },
@@ -156,6 +160,9 @@ module.exports = {
       },
     },
     extend: {
+      animation: {
+        'spin-slow': 'spin 20s linear infinite',
+      }, 
       transformOrigin: {
         "0": "0%",
       },

@@ -59,6 +59,14 @@ input:focus-within ~ label {
   @apply text-brand-major;
 }
 
+.h-screenx {
+  height: 85vh;
+}
+
+.spacer{
+  @apply h-24
+}
+
 input {
   @apply text-gray-700;
  

@@ -1,65 +1,58 @@
 <template>
     <div class="w-screen">
       <notice-apply v-if="startApplication" @close="startApplication = !startApplication"/>
-        <div class="w-full flex py-5 px-12 fixed top-o left-0 bg-brand-major z-10">
-            <!-- <h3>LOGO</h3> -->
-            <img src="../../assets/logo.png" alt="" class=" w-32">
-        </div>
-
-        <hr class=" border-brand-major">
-
-        <div class="flex gap-4 h-1/2 mt-28 px-14">
-            <div class="w-1/2  relative">
-                <img src="../../assets/img/bgglyph.svg" alt="" class="w-20 absolute -z-1 bgglyphPosition">
-                    <div class="w-44 h-44 absolute boxPosition shadow-lg shadow-orange-500/40 rounded-lg grid gap-4 content-center ...">
-                        <div class="text-black">
-                            <h1 class="font-bold Ww-full text-center">100%</h1>
-                            <h1 class="font-bold text-center">APPROVAL RATE</h1>
-                        </div>
-                    </div>
-                <div class="px-5  h-full pt-32  text-black  grid gap-4 content-center ">
-                    <div>
-                         <h1 class="text-3xl">International Studies &nbsp; <span class="text-4xl">&#127891;</span> </h1>
+        <div class="h-screen flex content-center">
+            <div class="w-1/6 h-full  content-center grid pl-10">
+                <div class="form w-full">
+                    <input type="text" placeholder="First Name" class="p-3 w-full rounded-md">
+                    <input type="text" placeholder=" Last Name" class="p-3 w-full rounded-md mt-5">
+                    <input type="text" placeholder="Email" class="p-3 w-full rounded-md mt-5">
+                    <input type="submit" value="Get Started" class="p-3 w-full rounded-md mt-5 bg-black text-white">
+                </div>
+            </div>
+            <div class="w-2/6 h-full  content-center grid pl-10 text-black text-right">
+                  <div>
+                    <h1 class="text-3xl">International Studies &nbsp; <span class="text-4xl">&#127891;</span> </h1>
                     <h1 class="text-6xl my-3 relative"> 
                         pay <span class="absolute rounded w-72 border bg-brand-major  bottom-0 h-2 -z-1 "></span> <span class="uppercase font-bold">Nothing</span>   </h1>
                     <h1 class="text-3xl mt-4 relative">until  <span class="absolute w-40 rounded border bg-brand-omajor  bottom-0 h-2 mt-5 -z-1 "></span> <span class="uppercase  font-bold">Admission</span>   is granted!  </h1>
                     <p class="mt-5">Hilton Parker focuses on getting you International Education, so you can focus on learning. The best part ? You don't pay service fee until Visa is approved.</p>
                 </div>
-                 <div class="flex w-1/2 gap-10 mt-10 ">
-                 <div class="relative w-1/2">
-                    <div @click="apply" class=" border text-white bg-brand-major  border-brand-major hover:text-brand-major rounded rounded-input hover:bg-white hover:border  cursor-pointer ransition ease-in-out delay-75 hover:-translate-y-1 hover:scale-110 duration-300 ">
-                            <p class="text-center m-2   ">Get Started</p>
-                    </div>
-                    <div class="w-full p-5 absolute bg-green-500 downer2 -z-1"></div>
-                 </div>
-                 <div class="relative w-1/2">
-                    <div @click="apply"  class=" border text-white bg-brand-major  border-brand-major hover:text-brand-major rounded rounded-input hover:bg-white hover:border  cursor-pointer ransition ease-in-out delay-75 hover:-translate-y-1 hover:scale-110 duration-300 ">
-                            <p class="text-center m-2   ">Learn More</p>
-                    </div>
-                    <div class="w-full p-5 absolute bg-red-500 downer2 -z-1"></div>
-                 </div>
-                    </div>
-                 </div>
             </div>
-            <div class="w-1/2 gap-12 flex pt-20">
-                <div class="w-1/2 bg-brand-major h-96 relative">
-                    <img src="../../assets/images/1.svg" alt="" class="absolute bottom-0 wider">
-                    <div class="absolute bg-red-500 h-96 w-full -z-1 downer"></div>
+            <div class="w-3/6 relative grid content-center px-10">
+                <div class="flex gap-2 m   h-50  w-full">
+                    <div class="w-1/2 h-full ">
+                        <div class="bg-black pl-16 pt-24">
+                            <img src="../../assets/images/1.svg" alt="" class="  ">
+                        </div>
+                    </div>
+                    <div class=" w-1/2 h-full">
+                          <div class="bg-brand-major">
+                            <img src="../../assets/images/1.svg" alt="" class=" wider ">
+                        </div>
+                    </div>
                 </div>
-                 <div class="w-1/2 bg-brand-major h-96 relative">
-                    <img src="../../assets/images/2.svg" alt="" class="absolute bottom-0 wider">
-                    <div class="absolute bg-blue-500 h-96 w-full -z-1 downer"></div>
+                <div class="flex gap-2 h-50 mt-0 w-full">
+                    <div class="w-1/2">
+                          <div class="bg-brand-major">
+                            <img src="../../assets/images/1.svg" alt="" class=" wider ">
+                        </div>
+                    </div>
+                    <div class=" w-1/2">
+                          <div class="bg-black">
+                            <img src="../../assets/images/1.svg" alt="" class=" wider ">
+                        </div>
+                    </div>
                 </div>
+                <!-- <div class="flex border border-red-300 h-1/2 w-full">3</div> -->
             </div>
         </div>
-
-      
 
         <!-- TESTIMONIAL SECTION  -->
   <div class=" h-20" id="testimonials"></div>
 
   <div class="md:flex w-screen justify-center align-middle">
-    <div class="bg-brand-major md:w-2/3 px-14 h-80 py-10 w-full text-white"> 
+    <div class="bg-black md:w-2/3 px-14 h-80 py-10 w-full text-white"> 
          <h2 class="md:text-3xl text-2xl text-center md:text-left font-bold my-5">Meet Tobi Amusan</h2>
         <p class="text-center md:text-left ">
           When my dad told me about the Canadian visa processing, I thought he
@@ -73,13 +66,24 @@
         
      </div>
     <div class=" md:w-1/3 w-full h-80 testimonialimage relative"> 
-      <div class="bg-brand-major z-10 absolute top-0 h-full w-full bg-opacity-50"></div>
+      <div class="bg-black z-10 absolute top-0 h-full w-full bg-opacity-50"></div>
       <img src="../../assets/images/canada.jpg" alt="ghghghgh" class="w-full h-full">
-      <img src="../../assets/images/icons/play.svg" alt="" class="absolute chaer bg-brand-major p-3 rounded-full   w-10 md:m-0 mx-auto cursor-pointer animate-ping"> 
+      <img src="../../assets/images/icons/play.svg" alt="" class="absolute chaer bg-black p-3 rounded-full   w-10 md:m-0 mx-auto cursor-pointer animate-ping"> 
     </div>
   </div>
 
-
+  <!-- <div class="md:flex w-full px-8 my-14 ">
+    <div class="w-1/2 hidden md:block"></div>
+    <div class="md:w-1/2 w-full">
+      <h2 class="md:text-3xl text-2xl text-center md:text-left font-bold my-5  w-full">1,000+ Happy Clients </h2>
+          <p class="text-center md:text-left ">
+            Since launching in 2020, over 1,000 people have used Hilton Parker Services to secure admission outside Nigeria. Avoid unneccessary delays </p>
+           <div class="flex cursor-pointer mt-5 transition ease-in-out delay-150  hover:translate-x-5 hover:scale-10  duration-200">
+            <span class="mt-2 mr-2 text-xs hidden md:flex ">Create your own success Stories </span>  
+            <img src="../../assets/images/icons/go.svg" alt="" class="bg-blue-500 p-3 rounded-full bg-opacity-30  w-10 md:m-0 mx-auto cursor-pointer "> 
+          </div> 
+    </div>
+  </div> -->
   <!-- END TESTIMONIAL SECTION  -->
 
   <div class="w-full pt-14 px-14">
@@ -173,10 +177,10 @@
         <h2 class="text-2xl font-bold text-center md:text-left  my-5">Major Benefits of Hilton Parker Services</h2>
         <p class="text-center md:text-left ">Hilton Parker Services provides plenty benefits but here's just a few of the benefits we offer</p>
           <div class="relative w-1/2 mt-5">
-                    <div @click="apply"  class=" border text-white bg-brand-major  border-brand-major hover:text-brand-major rounded rounded-input hover:bg-white hover:border  cursor-pointer ransition ease-in-out delay-75 hover:-translate-y-1 hover:scale-110 duration-300 ">
+                    <div @click="apply" class=" p-1 text-white bg-black   hover:text-brand-major rounded rounded-input hover:bg-white hover:border  cursor-pointer ransition ease-in-out delay-75 hover:-translate-y-1 hover:scale-110 duration-300 ">
                             <p class="text-center m-2   ">Get Started</p>
                     </div>
-                    <div class="w-full p-5 absolute bg-green-500 downer2 -z-1"></div>
+                    <div class="w-full p-6 absolute bg-green-500 downer2 -z-1"></div>
         </div>
     </div>
     <div class="md:w-3/4 w-full   ">
@@ -282,18 +286,17 @@
                 <h1 class="text-3xl w-full font-bold text-center">1,000+ Happy Clients
                 </h1>
                 <p class="mt-5 text-center">Since launching in 2020, over 1,000 people have used Hilton Parker Services to secure admission outside Nigeria. Avoid unneccessary delays</p>
-            <div class="bg-brand-major w-48 text-center rounded-md font-bold p-3 mx-auto my-12">Get Started</div>
             </div>
         </div>
 
-        <div class="flex w-full bg-brand-major mt-8 py-20 px-8">
+          <div class="flex w-full bg-black mt-8 py-20 px-8">
           <div class="w-1/2">
-            <h2 class="text-black font-extrabold text-4xl">Be the first to get information about promotions and other informations </h2>
+            <h2 class="text-white font-extrabold text-4xl">Be the first to get information about promotions and other informations </h2>
           </div>
           <div class="w-1/2 flex">
             <div class="w-full flex">
                 <input type="text" class="w-3/4 rounded-l-xl p-3 my-auto " placeholder="Sign up for our Newsletter">
-                <input type="submit" value="Submit" class="w-1/4 bg-black text-white border-brand-major rounded-r-xl p-3 my-auto ">
+                <input type="submit" value="Submit" class="w-1/4 bg-brand-major text-white border-brand-major rounded-r-xl p-3 my-auto ">
             </div>
           </div>
         </div>
@@ -302,20 +305,20 @@
             <div class="w-1/2">
                 <h1 class="text-3xl w-full font-bold text-center">Reach out to us </h1>
                 <h1 class=" text-4xl mt-5 text-center font-bold text-brand-major ">+234 700 4449 444</h1>
-            <!-- <div class="bg-brand-major w-48 text-center rounded-md font-bold p-3 mx-auto my-12">Get Started</div> -->
+            <!-- <div class="bg-black w-48 text-center rounded-md font-bold p-3 mx-auto my-12">Get Started</div> -->
             <form @submit.prevent="contact">
               <div class="w-full mt-10">
                 <input type="text" placeholder="Your Name" class="p-3 w-full rounded-md">
                 <input type="text" placeholder=" Email" class="p-3 w-full rounded-md mt-5">
                 <input type="text" placeholder=" Phone Number" class="p-3 w-full rounded-md mt-5">
                 <textarea class="w-full mt-5 p-3 rounded-md" placeholder="Message" name="" id="" cols="30" rows="10"></textarea>
-                <input type="submit" value="Send Message" class="p-3 w-full rounded-md mt-5 bg-brand-major text-white">
+                <input type="submit" value="Send Message" class="p-3 w-full rounded-md mt-5 bg-black text-white">
               </div>
             </form>
             </div>
         </div>
           <!-- FOOTER  -->
-<div class="w-full bg-brand-major px-8 md:flex text-white gap-4 justify-center align-middle py-5">
+<div class="w-full bg-black px-8 md:flex text-white gap-4 justify-center align-middle py-5">
   <div class="md:w-1/4 w-full mx-auto">
             <img src="../../assets/logo.png" alt="" class=" w-32">
   </div>
@@ -342,7 +345,7 @@
     <p class="my-5">Twitter</p>
   </div>
 </div>
-<p class="w-full py-10 bg-brand-major text-white text-center text-sm">&copy; 2022 Hilton Parker Services; made with &hearts; by <a href="https://collinswilson.tech" target="blank">Cre8ive_collins</a> </p>
+<p class="w-full py-10 bg-black text-white text-center text-sm">&copy; 2022 Hilton Parker Services; made with &hearts; by <a href="https://collinswilson.tech" target="blank">Cre8ive_collins</a> </p>
   <!-- END FOOTER  -->
 
     </div>
@@ -358,9 +361,9 @@ const { useRouter }=require("vue-router")
   const apply = () => {
     router.push('/apply')
   }
-  const contact = () => {
-    console.log('form')
-  }
+  // const contact = () => {
+  //   console.log('form')
+  // }
 </script>
 
 <style scoped>
@@ -371,10 +374,13 @@ const { useRouter }=require("vue-router")
 .boxPosition{
     background-color: white;
     bottom: -20%;
-    left: 70%;
+    left: 0%;
 }
 .bgglyphPosition{
     left: 85%;
+}
+.form{
+    /* box-shadow: 10px 10px 30px 1px orange; */
 }
 .abspos{
     top: 20%;
@@ -392,15 +398,16 @@ const { useRouter }=require("vue-router")
 }
 .wider{
     width: 300px;
-    right: 0%;
+    left: 20%;
 }
 .downer{
     bottom: -2%;
     right: -2%;
 }
 .downer2{
-    bottom: -10%;
-    right: -5%;
+    bottom: -5%;
+    right: -1%;
+    border-radius: 5px;
 }
 .downel{
     left: -2%;
